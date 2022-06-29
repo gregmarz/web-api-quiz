@@ -1,3 +1,13 @@
+#qTimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    width:  50%;
+    border: 1px solid black;
+    margin-left: 25%;
+}
+
 #questContainer {
     display: flex;
     justify-content: center;
