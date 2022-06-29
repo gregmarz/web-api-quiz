@@ -11,8 +11,8 @@ var subBtn = document.getElementById("btnSubmit");
 var subBtn2 = document.getElementById("btnSubmit2");
 var qRight = document.getElementById("rightQ");
 var qRight2 = document.getElementById("rightQ2");
-
-
+var highSchores = document.getElementById("highScores");
+var appendUl = document.getElementById("highUl");
 var endGame = document.getElementById("endGame"); 
 var endBtn = document.getElementById("endSubmit");
 
@@ -105,4 +105,9 @@ subBtn2.addEventListener("click", function(event) {
 endBtn.addEventListener("click",function(event) {
     event.preventDefault();
     addScore();
+    for (var i = 0; i<scoreList.length; i++) {
+        var scoreEl = document.createElement("li");
+        scoreEl.innerHTML = scoreList[i];
+        scoreEl.append(appendUl); // i literally give up on this my head is going to explode i dont even know how long i tried to work on this but i do not have the time, i might come back to it later but im about to have a mental breakdown :)
+    }
 });
