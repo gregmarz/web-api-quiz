@@ -4,10 +4,15 @@ var startPage = document.getElementById("startPage");
 var qTimer = document.getElementById("qTimer");
 var questPage = document.getElementById("questContainer");
 var questionOne = document.getElementById("questionOne");
+var questionTwo = document.getElementById("questionTwo");
+
 var subBtn = document.getElementById("btnSubmit");
 var qRight = document.getElementById("rightQ");
 
+
 var timeLeft = 100;
+var numWrong = 0;
+var numRight = 0;
 
 function timerInt() {
     setInterval(function() {
@@ -26,10 +31,15 @@ function timerInt() {
 
 function checkAns() {
     if ((qRight).checked) {
+        numRight++;
         alert("good job");
-        return
+        console.log(numRight);
+        questionOne.setAttribute("class","hidden");
+        questionTwo.setAttribute("class","");
     } else {
         alert("wrong!")
+        console.log(numWrong);
+        numWrong++;
     }
 }
 
