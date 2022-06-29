@@ -1,0 +1,15 @@
+#questContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:  50%;
+    height: 300px;
+    border: 1px solid black;
+    margin-left: 25%;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
