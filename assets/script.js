@@ -4,21 +4,25 @@ var startPage = document.getElementById("startPage");
 var qTimer = document.getElementById("qTimer");
 var youLost = document.getElementById("LOSELOSE");
 var endPage = document.getElementById("endPage");
-var endName = document.getElementById("endGame");
 var questPage = document.getElementById("questContainer");
 var questionOne = document.getElementById("questionOne");
 var questionTwo = document.getElementById("questionTwo");
 var subBtn = document.getElementById("btnSubmit");
 var subBtn2 = document.getElementById("btnSubmit2");
-var endBtn = document.getElementById("endSubmit");
 var qRight = document.getElementById("rightQ");
 var qRight2 = document.getElementById("rightQ2");
+
+
+var endGame = document.getElementById("endGame"); 
+var endBtn = document.getElementById("endSubmit");
+
 
 var timeLeft = 60;
 var timeMinus = 10;
 var numWrong = 0;
 var numRight = 0;
 
+scoreList = [];
 
 function timerInt() {
     setInterval(function() {
@@ -72,6 +76,13 @@ function checkAns2() {
     }
 };
 
+function addScore() {
+    var score = [endGame.value,(numRight-numWrong)];
+    scoreList.push(score);
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+}
+
+
 startBtn.addEventListener("click", function(event) {
     event.preventDefault();
     timerInt();
@@ -91,3 +102,7 @@ subBtn2.addEventListener("click", function(event) {
     checkAns2();
 });
 
+endBtn.addEventListener("click",function(event) {
+    event.preventDefault();
+    addScore();
+});
