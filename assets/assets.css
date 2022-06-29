@@ -18,15 +18,6 @@ body {
     padding-bottom: 2%;
 }
 
-#LOSELOSE {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:  50%;
-    border: 1px solid black;
-    background-color: azure;
-}
-
 #qTimer {
     display: flex;
     justify-content: center;

@@ -4,17 +4,21 @@ var startPage = document.getElementById("startPage");
 var qTimer = document.getElementById("qTimer");
 var youLost = document.getElementById("LOSELOSE");
 var endPage = document.getElementById("endPage");
+var endName = document.getElementById("endGame");
 var questPage = document.getElementById("questContainer");
 var questionOne = document.getElementById("questionOne");
 var questionTwo = document.getElementById("questionTwo");
 var subBtn = document.getElementById("btnSubmit");
 var subBtn2 = document.getElementById("btnSubmit2");
+var endBtn = document.getElementById("endSubmit");
 var qRight = document.getElementById("rightQ");
 var qRight2 = document.getElementById("rightQ2");
 
 var timeLeft = 60;
+var timeMinus = 10;
 var numWrong = 0;
 var numRight = 0;
+
 
 function timerInt() {
     setInterval(function() {
@@ -44,6 +48,7 @@ function checkAns1() {
         questionTwo.setAttribute("class","");
     } else {
         numWrong++;
+        timeLeft = timeLeft - timeMinus;
         alert("wrong!")
         console.log("amount wrong: " + numWrong);
     }
@@ -61,6 +66,7 @@ function checkAns2() {
         qTimer.setAttribute("class","hidden");
     } else {
         numWrong++;
+        timeLeft = timeLeft - timeMinus;
         alert("wrong!")
         console.log("amount wrong: " + numWrong);
     }
@@ -84,3 +90,4 @@ subBtn2.addEventListener("click", function(event) {
     event.preventDefault();
     checkAns2();
 });
+
