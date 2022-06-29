@@ -5,9 +5,10 @@ var qTimer = document.getElementById("qTimer");
 var questPage = document.getElementById("questContainer");
 var questionOne = document.getElementById("questionOne");
 var questionTwo = document.getElementById("questionTwo");
-
 var subBtn = document.getElementById("btnSubmit");
+var subBtn2 = document.getElementById("btnSubmit2");
 var qRight = document.getElementById("rightQ");
+var HELPHELP = document.getElementById("rightQ2");
 
 
 var timeLeft = 100;
@@ -27,31 +28,50 @@ function timerInt() {
             }
         }
     },1000)
-}
+};
 
-function checkAns() {
+function checkAns1() {
     if ((qRight).checked) {
         numRight++;
         alert("good job");
-        console.log(numRight);
+        console.log("amount right: " + numRight);
         questionOne.setAttribute("class","hidden");
         questionTwo.setAttribute("class","");
     } else {
-        alert("wrong!")
-        console.log(numWrong);
         numWrong++;
+        alert("wrong!")
+        console.log("amount wrong: " + numWrong);
     }
-}
+};
 
-startBtn.addEventListener("click", function() {
+function checkAns2() {
+    if ((HELPHELP).checked) {
+        numRight++;
+        alert("good job");
+        console.log("amount right: " + numRight);
+        questionTwo.setAttribute("class","");
+    } else {
+        numWrong++;
+        alert("wrong!")
+        console.log("amount wrong: " + numWrong);
+    }
+};
+
+startBtn.addEventListener("click", function(event) {
+    event.preventDefault();
     timerInt();
     startPage.setAttribute("class", "hidden");
     qTimer.setAttribute("class", "");
     questPage.setAttribute("class", "");
     questionOne.setAttribute("class", "");
-})
+});
 
 subBtn.addEventListener("click", function(event) {
-     event.preventDefault();
-     checkAns();
-})
+    event.preventDefault();
+    checkAns1();
+});
+
+subBtn2.addEventListener("click", function(event) {
+    event.preventDefault();
+    checkAns2();
+});
